@@ -1,0 +1,22 @@
+Summary.txt
+Summary SRE
+
+Day 1
+
+Overview of SRE (Site Reliability Engineering)
+
+SRE allows to keep the operation optimal by ensuring if application ara available, to verify the 
+latency, performance and efficienly.
+
+Present AWS and GitHub
+
+Day2
+
+See IAM on AWS 
+    By create policies, users, group and allows right to different users
+    IAM is an important concept because it allows to allow the right access to the right users and group
+
+VPC Virtual Private Cloud
+
+This concept help to create private network like a virtual network with the same properties like a network on-premise so we can create VLAN
+define policy as firewall (ip in and ip out) and define gateway to allow access to a particulary subnetwork (NAT gateway)
