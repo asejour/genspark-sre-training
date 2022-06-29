@@ -1,22 +1,38 @@
-Summary.txt
-Summary SRE
+Summary SRE Training
 
 Day 1
 
 Overview of SRE (Site Reliability Engineering)
 
-SRE allows to keep the operation optimal by ensuring if application ara available, to verify the 
-latency, performance and efficienly.
+- SRE allows to keep the operation optimal by ensuring if applications are available, to verify the 
+latency, performance and efficienly. SRE is more focus on the customers need and to ensure that are available This is the reason Site Reliability Engineers
+prioritize Service-Level Agreement, Service-Level Objective and Service-Level Indicator Metrics.
 
-Present AWS and GitHub
+- Presentation of AWS and GitHub
+Amazon Web Service (AWS) is a cloud computing that allow client to focus more on business model and leave AWS take care of the others aspect like server maintenance, security and
+other materiel, technologies and system that we usually use in a datacenter.
+Aws allow to pay only for services used.
+
+- Presentation of some Services of AWS
+    - Avaibility Zone
+    - Region 
+    - Local Zone
+    - AWS Control Tower
+    - AWS Config
+    - AWS Service Catalog
+    - AWS System Manager
+    - AWS  CloudFormation
+    - AWS CloudTrail
+
+- Presentation and configuration of GitHub
 
 Day2
 
-See IAM on AWS 
+See IAM on AWS (Lab)
     By create policies, users, group and allows right to different users
     IAM is an important concept because it allows to allow the right access to the right users and group
 
-VPC Virtual Private Cloud
+VPC (Virtual Private Cloud)
 
-This concept help to create private network like a virtual network with the same properties like a network on-premise so we can create VLAN
-define policy as firewall (ip in and ip out) and define gateway to allow access to a particulary subnetwork (NAT gateway)
+VPC allows to launch AWS resources. That works the same way as real environment network with switch, hub, router, firewall and into this environment you can create VLAN, define
+route (rules) via routable, configure VPN, firewall etc. Everything you used to perform in network environment you can do the same in the VPC.
