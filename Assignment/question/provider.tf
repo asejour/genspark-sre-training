@@ -103,7 +103,7 @@ resource "aws_eks_cluster" "eks_cluster" {
 
   vpc_config {
     security_groups = [aws_security_group.TerraformEC2_Security.id]
-    subnet_ids = aws_subnet.subnet[*].id
+    subnet_ids = concat(aws_subnet.subnet1.id, aws_subnet.subnet2.id)
   }
 
   
