@@ -89,7 +89,7 @@ resource "aws_route_table" "my_vpc_us_east_1b_public" {
 #create association for route subnet 2
 
 resource "aws_route_table_association" "my_vpc_us_east_1b_public" {
-    subnet_id = aws.subnet.subnet2.id
+    subnet_id = aws_subnet.subnet2.id
     route_table_id = aws_route_table.my_vpc_us_east_1b_public.id
   
 }
@@ -102,8 +102,8 @@ resource "aws_eks_cluster" "eks_cluster" {
   version = null
 
   vpc_config {
-    security_groups = [aws_security_group.TerraformEC2_Security.id]
-    subnet_ids = concat(aws_subnet.subnet1.id, aws_subnet.subnet2.id)
+    security_group_ids = [aws_security_group.TerraformEC2_Security.id]
+    subnet_ids = [aws_subnet.subnet1.id, aws_subnet.subnet2.id]
   }
 
   
@@ -124,12 +124,12 @@ resource "aws_eks_node_group" "eks_ng_public" {
 
   node_group_name = "${local.name}-eks-ng-public"
   node_role_arn   = aws_iam_role.eks_nodegroup_role.arn
-  subnet_ids      = aws_subnet.subnet1.id
+  subnet_ids      = [aws_subnet.subnet1.id , aws_subnet.subnet2.id]
   
   ami_type = "AL2_x86_64"  
   capacity_type = "ON_DEMAND"
   disk_size = 20
-  instance_types = "t2.micro"
+  instance_types = ["t2.micro"]
   
   
   remote_access {
