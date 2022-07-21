@@ -1,1 +1,13 @@
+Week 3: 
+Assignment
+Question 1:
+CICD Application build and deployment Project: 
+
+Provisioning the CICD environment and creating a simple pipeline to build, test and deploy the simple sample application
+
+Question 2:
+Micro-service application deployment strategy Project: 
+
+Configure a Kubernetes cluster and containerise the simple sample application also introduce the service layer components(network)
+
 
