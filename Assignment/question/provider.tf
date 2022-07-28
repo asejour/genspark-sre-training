@@ -1,8 +1,8 @@
 # Configure the AWS Provider
 provider "aws" {
   region = "us-east-1"
-  access_key = "ID"
-  secret_key = "KEY"
+  access_key = ""
+  secret_key = ""
 }
 
 #Create VPC
@@ -33,6 +33,7 @@ resource "aws_subnet" "subnet1" {
   vpc_id     = aws_vpc.main.id
   cidr_block = "10.0.2.0/24"
   availability_zone = "us-east-1a"
+  map_public_ip_on_launch = true
 
   tags = {
     Name = "Main"
@@ -45,6 +46,7 @@ resource "aws_subnet" "subnet2" {
   vpc_id = aws_vpc.main.id
   cidr_block = "10.0.3.0/24"
   availability_zone = "us-east-1b"
+  map_public_ip_on_launch = true
 }
 
 #create Route Table for subnet 1
@@ -133,7 +135,7 @@ resource "aws_eks_node_group" "eks_ng_public" {
   
   
   remote_access {
-    ec2_ssh_key = "srevm-key"
+    ec2_ssh_key = "sre-key"
   }
 
   scaling_config {

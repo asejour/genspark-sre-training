@@ -1,42 +1,59 @@
-pipeline {
+pipeline{
     agent any
-    
-    stages {
+    stages{
+
         stage('Checkout') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/asejour/genspark-sre-training/']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/asejour/adomaa-amos']]])
             }
         }
         
-        stage('Launch init terraform') {
+        stage("deploy infrastructure"){
             steps{
-                sh label: "", script:"terraform init"
+                 dir('Terraform'){
+                    sh "pwd"
+                 }
+
+                 sh "terraform init"
+                 sh "terraform validate"
+                 sh "terraform plan"
+                 sh "terraform apply"
             }
-            
         }
-        
-        stage('test') {
-            
+
+        stage ("navigate to Q3 root dir"){
             steps{
-                
-                echo "Ok continue---Emppty"
-            }
-            
-        }
-        
-        stage('Launch apply terraform') {
-            steps{
-                sh label: "", script:"terraform apply --auto-approve"
-            }
-            
-        }
-        stage('Kubernetes Deploy'){
-            
-            steps{
-                withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'k8-konfig', namespace: '', serverUrl: '') {
-                sh "kubectl apply -f deployment.yaml"
+                dir("..\\"){
+                    sh "pwd"
                 }
+                
+            }
+
+        }
+        
+        stage ("build"){
+            steps {
+                sh "echo 'building the project' "
+                sh 'pip install flask'
+     }
+
+        }
+
+    stage ("test"){
+            steps {
+                sh "echo 'testing the project' "
+                sh "python test.py"
+
             }
         }
+
+     stage ("run"){
+            steps {
+                sh "echo 'running the project' "
+                sh "python  app.py"
+            }
+        }   
+    
     }
+
 }
