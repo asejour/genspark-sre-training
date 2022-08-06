@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: web-deployment
+  namespace: srens
   labels:
     app: my-app
 spec:
@@ -16,7 +17,7 @@ spec:
     spec:
       containers:
       - name: my-app
-        image: 143527018359.dkr.ecr.us-east-1.amazonaws.com/my-app:latest
+        image: 613166275491.dkr.ecr.us-east-1.amazonaws.com/my-app:latest
         ports:
         - containerPort: 80
 ---
@@ -25,6 +26,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: my-service
+  namespace: srens
 spec:
   selector:
     app: my-app
