@@ -1,5 +1,5 @@
 Configure IAM user
-Create Policies
+Create Policy
 For billing :
 {
   "Version": "2012-10-17",
