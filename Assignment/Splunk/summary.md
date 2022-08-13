@@ -1,6 +1,7 @@
 Configure IAM user
 Create Policy
 For billing :
+
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -22,7 +23,10 @@ For billing :
   ]
 }
 
-Create a second Policy for cloud trail
+
+
+Create a second Policy for cloudtrail
+
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -45,8 +49,8 @@ Create a second Policy for cloud trail
     ]
 }
 
+
 Configure SNS
-Configure Cloudwatch
 Configure Cloudtrail
 Configure SQS
 
