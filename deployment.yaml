@@ -20,17 +20,3 @@ spec:
         image: 613166275491.dkr.ecr.us-east-1.amazonaws.com/my-app:latest
         ports:
         - containerPort: 80
----
-
-apiVersion: v1
-kind: Service
-metadata:
-  name: my-service
-  namespace: srens
-spec:
-  selector:
-    app: my-app
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
